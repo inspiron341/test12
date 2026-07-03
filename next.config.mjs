@@ -6,6 +6,7 @@ const withMDX = createMDX();
 const config = {
   output: 'export',
   reactStrictMode: true,
+  trailingSlash: true, // required for Read the Docs directory-based serving
 };
 
 export default withMDX(config);
