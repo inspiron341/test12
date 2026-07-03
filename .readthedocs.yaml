@@ -10,5 +10,8 @@ build:
   commands:
     - npm ci
     - RTD_BASE_PATH="/${READTHEDOCS_LANGUAGE:-en}/${READTHEDOCS_VERSION:-latest}" npm run build
+    # basePath nests output under out/en/latest/ -> extract to flat html output
     - mkdir -p _readthedocs/html
-    - cp -r out/* _readthedocs/html/
+    - cp -r out/*/_next _readthedocs/html/
+    - cp -r out/*/*.html _readthedocs/html/
+    - cp -r out/*/*/ _readthedocs/html/ 2>/dev/null || true
