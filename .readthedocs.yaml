@@ -1,6 +1,3 @@
-# Read the Docs configuration file
-# See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
-
 version: 2
 
 build:
@@ -9,9 +6,8 @@ build:
     nodejs: "20"
   commands:
     - npm ci
-    - RTD_BASE_PATH="/${READTHEDOCS_LANGUAGE:-en}/${READTHEDOCS_VERSION:-latest}" npm run build
-    # basePath nests output under out/en/latest/ -> extract to flat html output
+    - npm run build
     - mkdir -p _readthedocs/html
-    - cp -r out/*/_next _readthedocs/html/
-    - cp -r out/*/*.html _readthedocs/html/
-    - cp -r out/*/*/ _readthedocs/html/ 2>/dev/null || true
+    - cp -r out/* _readthedocs/html/
+
+formats: []
