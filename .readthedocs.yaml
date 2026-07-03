@@ -10,5 +10,4 @@ build:
   commands:
     - npm ci
     - npm run build
-    - mkdir -p _readthedocs/html
-    - cp -r out/* _readthedocs/html/
+    - node scripts/rtd-fix-paths.js
