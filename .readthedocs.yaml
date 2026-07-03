@@ -9,5 +9,6 @@ build:
     nodejs: "20"
   commands:
     - npm ci
-    - npm run build
-    - node scripts/rtd-fix-paths.js
+    - RTD_BASE_PATH="/${READTHEDOCS_LANGUAGE:-en}/${READTHEDOCS_VERSION:-latest}" npm run build
+    - mkdir -p _readthedocs/html
+    - cp -r out/* _readthedocs/html/
